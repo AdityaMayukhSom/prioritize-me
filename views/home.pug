@@ -1,0 +1,24 @@
+mixin todoCard(todoItem)
+    div.todo-card
+        p #{todoItem.todoID}
+        p #{todoItem.todoTitle}
+        p #{todoItem.todoCreationTime}
+        p #{todoItem.todoDeadline}
+        p #{todoItem.todoCompletionTime}
+        button is done
+
+
+
+doctype html 
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        link(rel='icon' href='favicon.ico')
+        title= title
+    body
+        h1 Prioritize Me 
+
+        ul
+            each todoItem in todoItems
+                +todoCard(todoItem)
+        script(src="script.js") 
