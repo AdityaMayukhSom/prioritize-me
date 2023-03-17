@@ -1,0 +1,34 @@
+mixin todoCard(todoItem)
+    li.todo-card
+        h4 #{todoItem.todoID}
+        p #{todoItem.todoTitle}
+        p #{todoItem.todoCreationTime}
+        p #{todoItem.todoDeadline}
+        p #{todoItem.todoCompletionTime}
+        button is done
+
+doctype html 
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        link(rel='icon' href='favicon.ico')
+        link(rel="stylesheet", href="style.css")
+        title= title
+    body
+        header 
+            //- p#app-title Prioritize Me
+            p#greetings Welcome Back, #{username}.
+            p#task-count You've got #{todoItems.length} tasks coming up in the next days.
+
+        form(method="post").add-todo-form
+            input(type="text", name="todo-name" maxlength="255")#todo-name
+            input(type="text", name="todo-description")#todo-description
+            input(type="datetime-local", name="")#todo-deadline
+             
+        ul
+            each todoItem in todoItems
+                +todoCard(todoItem)
+        
+ 
+
+        script(src="script.js") 
