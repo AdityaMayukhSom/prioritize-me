@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./InterVariableFont.ttf');
+}
+
+@font-face {
+  font-family: 'Halimun';
+  src: url('./Halimun.ttf');
+}
+
+:root {
+  --color-one: #070057;
+  --color-two: #0c1f63;
+  --color-three: #00B4D8;
+  --color-four: #90E0EF;
+  --color-five: #dffaff;
+
+  --text-color-one: #060021;
+
+  --tiny-length: 12px;
+  --small-length: 24px;
+  --medium-length: 36px;
+  --large-length: 48px;
+  --extra-large-length: 50px;
+  --excessive-length: 72px;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter';
+}
+
+.svg-btn {
+  @apply bg-transparent hover: bg-gray-200 h-7 md:h-9 w-7 md:w-9 flex justify-center items-center rounded-sm border-1 border-gray-300;
+}
+
+.app-logo {
+  font-family: 'Halimun';
+}
+
+#login-page {
+  /* background-color: #060021; */
+  background-size: cover;
+  background-color: rgb(224, 224, 224);
+  background-blend-mode: multiply;
+  background-image: url('/LoginBackground02.jpg');
+}
+
+#login-form-title {
+  background-image: url('/LoginTitleBackground.jpg');
+  background-size: cover;
+  background-color: rgb(176, 188, 255);
+  background-blend-mode: multiply;
+}

@@ -3,8 +3,9 @@ const bodyParser = require('body-parser')
 const app = express()
 
 const todoController = require('./controllers/todo.controller')
+const allowedOrigins = require('./config/allowedOrigins')
 
-const config = require('./config')
+const config = require('./config/config')
 const db = require('./db').getDB();
 
 app.set('views', './views')
@@ -12,7 +13,10 @@ app.set('view engine', 'pug')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', config.frontendURL);
+    const origin = req.headers.origin;
+    if (allowedOrigins.indexOf(origin) > -1) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
